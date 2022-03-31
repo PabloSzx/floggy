@@ -1,17 +1,15 @@
 {
-  "name": "floggy",
-  "version": "0.0.0-dripip",
+  "name": "@pablosz/floggy",
+  "version": "1.0.0",
   "repository": "git@github.com:jasonkuhrt/floggy.git",
   "author": "Jason Kuhrt",
   "license": "MIT",
   "files": [
-    "dist-cjs",
-    "dist-esm"
+    "dist-cjs"
   ],
   "exports": {
     ".": {
-      "require": "./dist-cjs/index.js",
-      "import": "./dist-esm/index.js"
+      "require": "./dist-cjs/index.js"
     }
   },
   "main": "./dist-cjs/index.js",
@@ -27,13 +25,13 @@
     "lint:check": "eslint . --ext .ts,.tsx --max-warnings 0",
     "dev": "yarn clean && tsc -w -p tsconfig.cjs.json",
     "dev:test": "yarn test --watch",
-    "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
+    "build": "tsc -p tsconfig.cjs.json",
     "test": "cross-env FORCE_COLOR=1 jest",
     "clean": "rm -rf dist-cjs dist-esm *.tsbuildinfo",
     "release:stable": "dripip stable",
     "release:preview": "dripip preview",
     "release:pr": "dripip pr",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "pnpm build"
   },
   "devDependencies": {
     "@prisma-labs/prettier-config": "0.1.0",
@@ -57,6 +55,7 @@
     "typescript-snapshots-plugin": "1.7.0"
   },
   "dependencies": {
+    "chalk": "^4.1.2",
     "fp-ts": "^2.11.3",
     "kleur": "^4.1.4",
     "lodash": "^4.17.21",
